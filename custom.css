@@ -1,0 +1,17 @@
+li {
+	display: inline-block;
+}
+
+li > span {
+	padding: 10px;
+	display: inline;
+}
+
+li > span > input {
+	padding: 10px;
+	display: inline;
+}
+
+input[type="text"]{
+	background-color: rgba(0, 0, 0, .3);
+}
