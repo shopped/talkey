@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<title>Demand more from your entertainment</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js" integrity="sha256-t3+U9BqykoMN9cqZmJ5Z53TvPv4V7S9AmjUcIWNNyxo=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./normalize.css">
+		<link rel="stylesheet" href="./skeleton.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="eight columns offset-by-two">
+					<h1>TALKEY DASHBOARD</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="six columns">
+					<h2>Frequency of Questions</h2>
+					<canvas id="frequency" width="600" height="400"></canvas>
+				</div>
+				<div class="six columns">
+					<h2>Timeline of Engagement</h2>
+					<canvas id="timeline" width="600" height="400"></canvas>
+				</div>
+			</div>
+			<div class="row">
+				<div class="six columns offset-by-three">
+					<h2>Unanswered Questions</h2>
+					<ul class='u-text-center'>
+						<li>What shampoo does Jon Snow use?</li>
+						<input type="text" name="fname"><button>submit</button>
+						<li>Where can I buy a sword like that?</li>
+						<input type="text" name="sname"><button>submit</button>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="./script.js"></script>
+	</body>
+</html>
