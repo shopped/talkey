@@ -1,9 +1,9 @@
-var question_canvas = document.getElementById("frequency");
-var question_frequency_data = {
-        labels: ["Who is the current actor?", "Who directed this film?", "What song is this?"],
+var question_canvas = document.getElementById("popular");
+var question_popular_data = {
+        labels: [],
         datasets: [{
-            label: 'Popularity',
-            data: [12, 9, 6, 0],
+            label: 'Popular Topics',
+            data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -17,11 +17,28 @@ var question_frequency_data = {
             borderWidth: 1
         }],
     };
-var question_category_data = {
-        labels: ["Products", "Production", "Crew", "Media"],
+// Get three most popular labels
+var get_popular_data = popular_data;
+get_popular_data.sort(function(a, b) {
+    return a.num < b.num;
+})
+question_popular_data.labels = [
+    get_popular_data[0].name,
+    get_popular_data[1].name,
+    get_popular_data[2].name,
+];
+// Populate three popular topic numbers
+question_popular_data.datasets[0].data = [
+    get_popular_data[0].num,
+    get_popular_data[1].num,
+    get_popular_data[2].num,
+];
+
+var question_categories_data = {
+        labels: [],
         datasets: [{
-        label: 'Categories',
-        data: [3, 6, 2, 8, 0],
+        label: 'Questions by Category',
+        data: [],
         backgroundColor: [
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
@@ -37,6 +54,15 @@ var question_category_data = {
             borderWidth:1
         }],
     };
+// Get all categories
+var get_categories_data = categories_data;
+// get_categories_data.sort(function(a, b) {
+//     return a.num < b.num;
+// })
+get_categories_data.forEach(function(category) {
+    question_categories_data.labels.push(category.name)
+    question_categories_data.datasets[0].data.push(category.num)
+})
 var question_options = {
         scales: {
             yAxes: [{
@@ -54,7 +80,7 @@ var question_options = {
     };
 var question_chart = new Chart(question_canvas, {
 	type: 'horizontalBar',
-	data: JSON.parse(JSON.stringify(question_frequency_data)), //deep copy so I can manipulate without breaking animations
+	data: JSON.parse(JSON.stringify(question_popular_data)), //deep copy so I can manipulate without breaking animations
 	options: question_options
     });
 
@@ -71,7 +97,7 @@ var toggle = () => {
     prim.id = "secondary";
     sec.id = "primary";
     //switch data
-    toggled ? updateData(question_chart, question_frequency_data) : updateData(question_chart, question_category_data);
+    toggled ? updateData(question_chart, question_popular_data) : updateData(question_chart, question_categories_data);
     toggled = !toggled;
 }
 function updateData(chart, my_data) {
@@ -150,3 +176,36 @@ var timeline_chart = new Chart(timeline_canvas, {
 	data: timeline_data,
 	options: timeline_chart
     });
+
+// Unanswered questions logic
+// unanswered.appendChild
+
+var get_unanswered_data = unanswered_data;
+
+unanswered_data.forEach(function(q) {
+    var new_point = document.createElement("li");
+    var mylist = document.getElementById("unanswered");
+    mylist.appendChild(new_point);
+
+    var question = document.createElement("span");
+    new_point.appendChild(question);
+    var node = document.createTextNode(q.name);
+    question.appendChild(node);
+
+    var myinput = document.createElement("span");
+    new_point.appendChild(myinput);
+    var inp = document.createElement("input");
+    inp.setAttribute("type", "text");
+    inp.setAttribute("name", q.name);
+    myinput.append(inp);
+    var node = document.createTextNode(q.name);
+    inp.appendChild(node);
+
+    var mysubmit = document.createElement("span");
+    new_point.appendChild(mysubmit);
+    var btn = document.createElement("button");
+    mysubmit.appendChild(btn);
+    btn.className = "button-primary";
+    var node = document.createTextNode("answer");
+    btn.appendChild(node);
+});

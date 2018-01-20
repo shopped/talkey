@@ -1,0 +1,13 @@
+var popular_data = [{
+	"name": "Pizza",
+    "num": 4
+}, {
+	"name": "Hotdog",
+    "num": 23
+}, {
+	"name": "Kumail Nanjiani",
+    "num": 6
+}, {
+	"name": "Zach Woods",
+    "num": 2
+}];

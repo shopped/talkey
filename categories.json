@@ -1,0 +1,13 @@
+var categories_data = [{
+	"name": "Products",
+    "num": 4
+}, {
+	"name": "Production",
+    "num": 11
+}, {
+	"name": "Crew",
+    "num": 7
+}, {
+	"name": "Media",
+    "num": 25
+}];

@@ -6,6 +6,10 @@
 		<link rel="stylesheet" href="./normalize.css">
 		<link rel="stylesheet" href="./skeleton.css">
 		<link rel="stylesheet" href="./custom.css">
+
+		<script type="text/javascript" src="popular.json"></script>
+		<script type="text/javascript" src="categories.json"></script>
+		<script type="text/javascript" src="unanswered.json"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -19,7 +23,7 @@
 					<h2> Question Breakdown </h2>
 					<button id="primary" class='button-primary' onclick="">by Frequency</button>
 					<button id="secondary" class='button-secondary' onclick="toggle()">by Category</button>
-					<canvas id="frequency" width="600" height="400"></canvas>
+					<canvas id="popular" width="600" height="400"></canvas>
 				</div>
 				<div class="six columns">
 					<h2>Timeline of Engagement</h2>
@@ -33,17 +37,7 @@
 			</div>
 			<div class="row">
 				<div class="ten columns offset-by-one">
-					<ul class='u-text-center'>
-						<li>
-							<span> What shampoo does Jon Snow use? </span>
-							<span class='input'> <input type="text" name="fname"> </span>
-							<span> <button class="button-primary">answer</button> </span>
-						</li>
-						<li>
-							<span> Where can I buy a sword like that? </span>
-							<span class='input'> <input type="text" name="sname"> </span>
-							<span> <button class="button-primary">answer</button> </span>
-						</li>
+					<ul id ='unanswered' class='u-text-center'>
 					</ul>
 				</div>
 			</div>
