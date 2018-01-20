@@ -45,4 +45,10 @@ app.post('/', function(req, res) {
 })
 
 const port = 3000;
-app.listen(port, () => console.log("Listening on %s", port))
+app.listen(port, () => {
+	fs.readFile(__dirname + '/' + 'unanswered.json', 'utf8', function(err, data) {
+		if (err) throw err;
+		console.log(data)
+	}
+	console.log("Listening on %s", port)
+})

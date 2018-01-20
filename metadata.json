@@ -1,4 +1,4 @@
-[{
+var metadata = [{
 	"intent": "hotdog",
     "answer": "I found Wurstkuche Restaurant in 2 Miles away."
 }, {
