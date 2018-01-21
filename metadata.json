@@ -1,7 +1,7 @@
-var metadata = [{
-	"intent": "hotdog",
-    "answer": "I found Wurstkuche Restaurant in 2 Miles away."
+[{
+    "intent": "hotdog",
+    "answer": "I found Wurstkuche Restaurant, 2 Miles away."
 }, {
 	"intent": "pizza",
     "answer": "Sbarros 2 Miles away, closing at 9pm."
-}];
+}]

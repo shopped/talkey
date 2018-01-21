@@ -184,6 +184,7 @@ var get_unanswered_data = unanswered_data;
 
 unanswered_data.forEach(function(q) {
     var new_point = document.createElement("li");
+    new_point.setAttribute("id", q.name);
     var mylist = document.getElementById("unanswered");
     mylist.appendChild(new_point);
 
@@ -204,6 +205,10 @@ unanswered_data.forEach(function(q) {
     var mysubmit = document.createElement("span");
     new_point.appendChild(mysubmit);
     var btn = document.createElement("button");
+    btn.addEventListener("click", () => {
+        console.log(document.getElementById(q.name));
+        document.getElementById(q.name).style.display = "none";
+    });
     mysubmit.appendChild(btn);
     btn.className = "button-primary";
     var node = document.createTextNode("answer");
